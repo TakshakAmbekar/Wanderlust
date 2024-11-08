@@ -1,4 +1,10 @@
 const User = require("../models/user");
+const Listing = require("../models/listing");
+
+module.exports.home = async (req, res) => {
+  const allListings = await Listing.find();
+  res.render("./listings/index", { allListings });
+};
 
 module.exports.signupForm = (req, res) => {
   res.render("./users/signup");
